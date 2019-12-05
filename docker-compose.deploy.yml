@@ -1,0 +1,70 @@
+version: '2.2'
+services:
+  serverless:
+    build:
+      dockerfile: serverless.Dockerfile
+      context: .
+    env_file: .env
+    volumes:
+      - $PWD:/app
+    working_dir: /app
+  terraform:
+    image: hashicorp/terraform
+    env_file: .env
+    environment:
+      - TF_CLI_ARGS_destroy="-force"
+      - TF_DATA_DIR=/tmp
+    volumes:
+      - $PWD:/app
+    working_dir: /app
+    entrypoint: 
+      - sh
+      - ./scripts/execute_terraform.sh
+  validate-serverless-infra:
+    extends: terraform
+    environment:
+      TF_VAR_environment: "production"
+    command:
+      - plan
+      - --input=false
+  deploy-serverless-infra:
+    extends: terraform
+    environment:
+      TF_VAR_environment: "production"
+    command:
+      - apply
+      - --auto-approve=true
+      - --input=false
+  deploy-serverless-domain:
+    extends: serverless
+    environment:
+      ENVIRONMENT: "production"
+    command:
+      - create_domain
+      - --stage
+      - v1
+  deploy-serverless-functions:
+    extends: serverless
+    environment:
+      ENVIRONMENT: "production"
+    command:
+      - deploy
+      - --stage
+      - v1
+  deploy-serverless-infra-test:
+    extends: terraform
+    environment:
+      TF_VAR_no_certs: "true"
+      TF_VAR_environment: "test"
+    command:
+      - apply
+      - --auto-approve=true
+      - --input=false
+  deploy-serverless-functions-test:
+    extends: serverless
+    environment:
+      ENVIRONMENT: "test"
+    command:
+      - deploy
+      - --stage
+      - develop
