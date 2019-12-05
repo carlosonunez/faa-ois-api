@@ -13,8 +13,8 @@ get_api_gateway_endpoint() {
 
   >&2 echo "INFO: Getting API Gateway default API key."
   api_key=$(serverless info --stage develop | \
-    grep -E 'default-tripit-key-dev:' | \
-    sed 's/.*default-tripit-key-dev: //' | \
+    grep -E 'default-faa-ois-key-dev:' | \
+    sed 's/.*default-faa-ois-key-dev: //' | \
     tr -d ' '
   )
   if test -z "$endpoint_url"
