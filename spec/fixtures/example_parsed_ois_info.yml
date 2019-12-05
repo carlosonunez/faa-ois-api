@@ -1,0 +1,80 @@
+---
+- program_mandated_acceptance_rateograms:
+  - airport_or_zone_name: EWR
+    program_start: "18:30"
+    program_end: "03:59"
+    areas_affected:
+    - ALL
+    - CZY
+    reasons:
+    - WEATHER
+    - WIND
+    average_delays_in_minutes: 76
+    airport_acceptance_rate: 36
+    program_mandated_acceptance_rateogram_mandated_acceptance_rate: 36
+  - airport_or_zone_name: LGA
+    program_start: "21:19"
+    program_end: "03:59"
+    areas_affected:
+    - "1425 NM"
+    - CZY
+    reasons:
+    - WEATHER
+    - WIND
+    average_delay_in_minutes: 26
+    airport_acceptance_rate: 38
+    program_mandated_acceptance_rate: 38
+  - airport_or_zone_name: SFO
+    program_start: "16:30"
+    program_end: "02:59"
+    areas_affected:
+    - ALL
+    - CZV
+    reasons:
+    - WEATHER
+    - LOW CEILINGS
+    average_delay_in_minutes: 33
+    airport_acceptance_rate: 36
+    program_mandated_acceptance_rate: 36
+  - airport_or_zone_name: TEB
+    program_start: "20:00"
+    program_end: "01:59"
+    areas_affected:
+    - ALL
+    - CZY
+    reasons:
+    - WEATHER
+    - WIND
+    average_delay_in_minutes: 76
+    airport_acceptance_rate: 36
+    program_mandated_acceptance_rate: 36
+- ground_stops:
+  - airport: EWR
+    last_update_time: 2230
+    probability_of_extension: LOW
+    areas_affected:
+      - 1st Tier
+      - CZY
+    reasons:
+      - WEATHER
+      - WIND
+- delays:
+  - airport: EWR
+    arrival_delay_minutes: +30
+    departure_delay_minutes: null
+    last_updated_time: 2145
+    reason: VOL:Compacted Demand
+  - airport: TEB
+    arrival_delay_minutes: null
+    departure_delay_minutes: +15
+    time: 2124
+    reason: WX:Wind
+- closures:
+  - airport: JFK
+    closure_time: 01101350
+    reason: SNOW
+    reopen_time: null
+  - airport: EWR
+    closure_time: 01101200
+    reason: SNOW
+    reopen: 01102200
