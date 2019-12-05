@@ -19,10 +19,6 @@ services:
     volumes:
       - $PWD:/app
     working_dir: /app
-  dynamodb:
-    image: amazon/dynamodb-local
-    ports:
-      - 8000:8000
   ruby:
     build:
       context: .
