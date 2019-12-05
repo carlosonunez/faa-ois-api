@@ -1,0 +1,61 @@
+---
+- programs:
+  - start: The time at which the ATC program begun.
+  - end: The time at which the ATC program is estimated to end.
+  - scope: The centers (ARTCCs) affected by this program.
+  - reason: The reason for the program's implementation.
+  - avg: Average flight delay, in minutes.
+  - aar: Airport acceptance rate, in arrivals/hour.
+  - pr: Acceptance rate imposed by the program, in arrivals/hour
+  - advzy: The advisory number that triggered the program.
+  - da: The delay assignment associated with this program.
+- ground_stops:
+  - arpt: The airport to which the ground stop was issued.
+  - update: The expected end time for the ground stop.
+  - poe: Probability of Extension.
+  - scope: The center/zone to which the ground stop applies.
+  - reason: The reason for the ground stop.
+  - advzy: The advisory number that triggered the ground stop.
+- additional_info:
+  - programs:
+    - reason_source: https://www.fltplan.com/abbreviations.htm
+  - general:
+    - centers:
+        - CZV: Vancouver
+        - CZE: Calgary
+        - CZW: Winnipeg
+        - CZY: Toronto
+        - CZU: Montreal/Quebec/Ottawa
+        - ZBW: Boston
+        - ZNY: New York/New Jersey
+        - ZDC: Washington
+        - ZJX: Jacksonville
+        - ZMA: Miami
+        - ZHU: Houston
+        - ZME: Memphis
+        - ZTL: Atlanta
+        - ZID: Indianapolis
+        - ZOB: Cleveland
+        - ZAU: Chicago
+        - ZKC: Kansas City
+        - ZFW: Dallas/Fort Worth
+        - ZAB: Alberquerque
+        - ZDV: Denver
+        - ZMP: Minneapolis
+        - ZLC: Salt Lake City
+        - ZLA: Los Angeles
+        - ZOA: Oakland
+        - ZSE: Seattle
+  - closures:
+      - time_format: "%M%D%H%m"
+- closures:
+  - arpt: The closed airport.
+  - time: The time at which the airport closed.
+  - reason: The reason for the closure.
+  - reopen: The expected reopening time for the airport, if known.
+- delays:
+  - arprt: The airport affected by delays.
+  - ad: Delays to inbound flights.
+  - dd: Delays to outbound flights.
+  - time: The time that info about the delay was last updated.
+  - reason: The reason for the delay.
