@@ -14,7 +14,7 @@ for item in $(echo "$things_to_exclude" | tr ',' "\n")
 do
   excludes="${excludes}-e "$PWD/$item" "
 done
-command="set -x; fswatch -o ${excludes} ."
+command="fswatch -o ${excludes} ."
 eval "$command" | \
   xargs -n1 -I{} bash -c "echo 'INFO: Running unit tests...' && \
 scripts/unit || true;
