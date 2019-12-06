@@ -1,5 +1,6 @@
 # source this file into your Bash or zsh session to make some common
 # commands available to you while testing the TripIt API.
+alias unit_watch="scripts/unit_watch.sh"
 alias unit="scripts/unit"
 alias integration="scripts/integration"
 alias integration_no_destroy="KEEP_INTEGRATION_ENVIRONMENT_UP=true scripts/integration"

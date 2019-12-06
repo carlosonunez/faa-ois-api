@@ -55,6 +55,21 @@ services:
       - --fail-fast
       - --format
       - documentation
+  lint:
+    extends: ruby
+    entrypoint: rubocop
+    volumes:
+      - "$PWD:/app:delegated" # need write access so that we can auto-correct
+    environment:
+      LOAD_PATH: "/app/spec/unit;/app/spec;/app/lib"
+      AWS_DYNAMODB_ENDPOINT_URL: "http://dynamodb:8000"
+      ENVIRONMENT: test
+    command:
+      - --auto-correct
+      - --except
+      - Style/Documentation # This is so easy to game, and the code should be readable by itself
+      - lib/**/*.rb
+      - spec
   integration:
     extends: ruby
     entrypoint: rspec
