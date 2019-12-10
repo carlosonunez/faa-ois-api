@@ -1,0 +1,302 @@
+---
+- center: CZV
+  friendly: Vancouver
+  first:
+  second:
+- center: CZE
+  friendly: Calgary
+  first:
+  second:
+- center: CZW
+  friendly: Winnipeg
+  first:
+  second:
+- center: CZY
+  friendly: Toronto
+  first:
+  second:
+- center: CZU
+  friendly: Montreal/Quebec/Ottawa
+  first:
+  second:
+- center: ZMA
+  friendly: Miami
+  first:
+    - ZHU
+    - ZJX
+  second:
+    - ZFW
+    - ZME
+    - ZTL
+    - ZDC
+- center: ZJX
+  friendly: Jacksonville
+  first:
+    - ZMA
+    - ZHU
+    - ZTL
+    - ZDC
+  second:
+    - ZAB
+    - ZFW
+    - ZME
+    - ZID
+    - ZOB
+    - ZNY
+    - ZBW
+- center: ZBW
+  friendly: Boston
+  first:
+    - ZOB
+    - ZDC
+    - ZNY
+  second:
+    - ZMP
+    - ZAU
+    - ZID
+    - ZTL
+    - ZJX
+- center: ZNY
+  friendly: New York/New Jersey
+  first:
+    - ZBW
+    - ZOB
+    - ZDC
+  second:
+    - ZMP
+    - ZAU
+    - ZID
+    - ZTL
+    - ZJX
+- center: ZDC
+  friendly: Washington
+  first:
+    - ZBW
+    - ZOB
+    - ZID
+    - ZTL
+    - ZJX
+  second:
+    - ZMP
+    - ZAU
+    - ZKC
+    - ZME
+    - ZHU
+    - ZMA
+- center: ZHU
+  friendly: Houston
+  first:
+    - ZAB
+    - ZFW
+    - ZME
+    - ZTL
+    - ZJX
+    - ZMA
+  second:
+    - ZLA
+    - ZDV
+    - ZKC
+    - ZID
+    - ZDC
+- center: ZME
+  friendly: Memphis
+  first:
+  second:
+- center: ZTL
+  friendly: Atlanta
+  first:
+    - ZHU
+    - ZME
+    - ZJX
+    - ZID
+    - ZDC
+  second:
+    - ZAB
+    - ZFW
+    - ZKC
+    - ZAU
+    - ZOB
+    - ZBW
+    - ZMA
+- center: ZID
+  friendly: Indianapolis
+  first:
+    - ZKC
+    - ZME
+    - ZTL
+    - ZAU
+    - ZOB
+    - ZDC
+  second:
+    - ZAB
+    - ZDV
+    - ZFW
+    - ZMP
+    - ZHU
+    - ZJX
+    - ZNY
+    - ZBW
+- center: ZOB
+  friendly: Cleveland
+  first:
+    - ZMP
+    - ZAU
+    - ZID
+    - ZDC
+    - ZNY
+    - ZBW
+  second:
+    - ZLC
+    - ZDV
+    - ZKC
+    - ZME
+    - ZTL
+    - ZJX
+- center: ZAU
+  friendly: Chicago
+  first:
+    - ZMP
+    - ZKC
+    - ZID
+    - ZOB
+  second:
+    - ZLC
+    - ZDV
+    - ZAB
+    - ZFW
+    - ZME
+    - ZTL
+    - ZDC
+    - ZNY
+    - ZBW
+- center: ZKC
+  friendly: Kansas City
+  first:
+    - ZAB
+    - ZDV
+    - ZMP
+    - ZAU
+    - ZID
+    - ZME
+    - ZFW
+  second:
+    - ZLA
+    - ZLC
+    - ZHU
+    - ZTL
+    - ZDC
+    - ZOB
+- center: ZFW
+  friendly: Dallas/Fort Worth
+  first:
+    - ZAB
+    - ZKC
+    - ZME
+    - ZHU
+  second:
+    - ZLA
+    - ZDV
+    - ZMP
+    - ZAU
+    - ZID
+    - ZTL
+    - ZJX
+    - ZMA
+- center: ZAB
+  friendly: Alberquerque
+  first:
+    - ZLA
+    - ZDV
+    - ZKC
+    - ZFW
+    - ZHU
+  second:
+    - ZOA
+    - ZLC
+    - ZMP
+    - ZAU
+    - ZID
+    - ZME
+    - ZTL
+    - ZJX
+- center: ZDV
+  friendly: Denver
+  first:
+    - ZLA
+    - ZAB
+    - ZKC
+    - ZMP
+    - ZLC
+  second:
+    - ZSE
+    - ZOA
+    - ZFW
+    - ZHU
+    - ZME
+    - ZID
+    - ZAU
+    - ZOB
+- center: ZMP
+  friendly: Minneapolis
+  first:
+    - ZLC
+    - ZDV
+    - ZKC
+    - ZAU
+    - ZOB
+  second:
+    - ZSE
+    - ZOA
+    - ZLA
+    - ZAB
+    - ZFW
+    - ZME
+    - ZID
+    - ZNY
+    - ZDC
+    - ZBW
+- center: ZLC
+  friendly: Salt Lake City
+  first:
+    - ZSE
+    - ZOA
+    - ZLA
+    - ZDV
+    - ZMP
+  second:
+    - ZAB
+    - ZKC
+    - ZAU
+    - ZOB
+- center: ZLA
+  friendly: Los Angeles
+  first:
+    - ZOA
+    - ZLC
+    - ZDV
+    - ZAB
+  second:
+    - ZSE
+    - ZMP
+    - ZKC
+    - ZFW
+    - ZHU
+- center: ZOA
+  friendly: Oakland
+  first:
+    - ZSE
+    - ZLC
+    - ZLA
+  second:
+    - ZDV
+    - ZAB
+    - ZMP
+- center: ZSE
+  friendly: Seattle
+  first:
+    - ZOA
+    - ZLC
+  second:
+    - ZLA
+    - ZDV
+    - ZMP
