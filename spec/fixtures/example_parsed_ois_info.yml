@@ -1,5 +1,5 @@
 ---
-- program_mandated_acceptance_rateograms:
+programs:
   - airport_or_zone_name: EWR
     program_start: "18:30"
     program_end: "03:59"
@@ -11,7 +11,7 @@
     - WIND
     average_delays_in_minutes: 76
     airport_acceptance_rate: 36
-    program_mandated_acceptance_rateogram_mandated_acceptance_rate: 36
+    program_mandated_acceptance_rate: 36
   - airport_or_zone_name: LGA
     program_start: "21:19"
     program_end: "03:59"
@@ -21,7 +21,7 @@
     reasons:
     - WEATHER
     - WIND
-    average_delay_in_minutes: 26
+    average_delays_in_minutes: 26
     airport_acceptance_rate: 38
     program_mandated_acceptance_rate: 38
   - airport_or_zone_name: SFO
@@ -33,7 +33,7 @@
     reasons:
     - WEATHER
     - LOW CEILINGS
-    average_delay_in_minutes: 33
+    average_delays_in_minutes: 33
     airport_acceptance_rate: 36
     program_mandated_acceptance_rate: 36
   - airport_or_zone_name: TEB
@@ -45,36 +45,41 @@
     reasons:
     - WEATHER
     - WIND
-    average_delay_in_minutes: 76
-    airport_acceptance_rate: 36
-    program_mandated_acceptance_rate: 36
-- ground_stops:
+    average_delays_in_minutes: 106
+    airport_acceptance_rate: 20
+    program_mandated_acceptance_rate: 20
+ground_stops:
   - airport: EWR
-    last_update_time: 2230
+    last_update_time: "22:30"
     probability_of_extension: LOW
     areas_affected:
-      - 1st Tier
+      - 1ST TIER
       - CZY
     reasons:
       - WEATHER
       - WIND
-- delays:
+delays:
   - airport: EWR
-    arrival_delay_minutes: +30
-    departure_delay_minutes: null
-    last_updated_time: 2145
-    reason: VOL:Compacted Demand
+    arrival_delay_minutes: 30
+    departure_delay_minutes: 0
+    last_updated_time: "21:45"
+    reasons:
+      - ZDC
+      - VOL:Compacted Demand
   - airport: TEB
-    arrival_delay_minutes: null
-    departure_delay_minutes: +15
-    time: 2124
-    reason: WX:Wind
-- closures:
+    arrival_delay_minutes: 0
+    departure_delay_minutes: 15
+    last_updated_time: "21:24"
+    reasons:
+      - WX:Wind
+closures:
   - airport: JFK
-    closure_time: 01101350
-    reason: SNOW
+    closure_time: 1547128200
+    reasons:
+      - SNOW
     reopen_time: null
   - airport: EWR
-    closure_time: 01101200
-    reason: SNOW
-    reopen: 01102200
+    closure_time: 1547121600
+    reasons:
+      - SNOW
+    reopen_time: 1547157600
