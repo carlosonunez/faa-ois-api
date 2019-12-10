@@ -5,6 +5,7 @@ gem 'tzinfo-data'
 gem 'logger'
 gem 'httparty'
 gem 'dynamoid'
+gem 'nokogiri'
 group :test do
   gem 'rspec'
   gem 'rspec-expectations'

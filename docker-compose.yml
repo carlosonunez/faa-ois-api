@@ -67,7 +67,7 @@ services:
     command:
       - --auto-correct
       - --except
-      - Style/Documentation # This is so easy to game, and the code should be readable by itself
+      - Style/Documentation,Style/GlobalVars
       - lib/**/*.rb
       - spec
   integration:
