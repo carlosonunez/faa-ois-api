@@ -8,9 +8,9 @@ describe 'Given the FAA OIS page' do
       expected_output_yml = 'spec/fixtures/example_parsed_ois_info.yml'
       allow(HTTParty).to receive(:get)
         .with($expected_ois_page_url)
-        .and_yield(double(HTTParty::Response,
-                          code: 200,
-                          body: File.read($expected_ois_page)))
+        .and_return(double(HTTParty::Response,
+                           code: 200,
+                           body: File.read($expected_ois_page)))
       expected_output = YAML.safe_load(File.read(expected_output_yml),
                                        symbolize_names: true)
       actual_output = FAAOISAPI::Page.parse

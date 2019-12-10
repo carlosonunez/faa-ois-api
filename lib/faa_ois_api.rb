@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'faa_ois_api/page'
+require 'faa_ois_api/airports'
 
 module FAAOISAPI
   @logger = Logger.new(STDOUT)

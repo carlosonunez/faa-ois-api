@@ -98,13 +98,12 @@ module FAAOISAPI
     def self.fetch_ois_data
       @faa_ois_url = ENV['FAA_OIS_URL'] ||
                      'https://www.fly.faa.gov/ois/jsp/summary_sys.jsp'
-      HTTParty.get(@faa_ois_url) do |response|
-        if response.code != 200
-          FAAOISAPI.logger.error "Failed to capture OIS data: #{response.body}"
-          yield(nil)
-        else
-          yield(response)
-        end
+      response = HTTParty.get(@faa_ois_url)
+      if response.code != 200
+        FAAOISAPI.logger.error "Failed to capture OIS data: #{response.body}"
+        yield(nil)
+      else
+        yield(response)
       end
     end
 
