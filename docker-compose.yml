@@ -42,6 +42,13 @@ services:
     command:
       - -c
       - "echo 'INFO: Vendoring dependencies...' && bundle install --without test --path /vendor/bundle"
+  app:
+    extends: ruby
+    entrypoint: ruby
+    environment:
+      ENVIRONMENT: test
+    command:
+      - bin/faa_ois_api.rb
   unit:
     extends: ruby
     entrypoint: rspec
