@@ -13,5 +13,6 @@ RSpec.configure do |config|
     $iflightplanner_url = 'https://www.iflightplanner.com/Airports/DFW'
     $expected_ois_page_url = ENV['FAA_OIS_URL'] ||
                              'https://www.fly.faa.gov/ois/jsp/summary_sys.jsp'
+    $expected_output_yml = 'spec/fixtures/example_parsed_ois_info.yml'
   end
 end
