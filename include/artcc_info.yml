@@ -1,42 +1,42 @@
 ---
 - center: CZV
   friendly: Vancouver
-  first:
-  second:
+  first_tier:
+  second_tier:
 - center: CZE
   friendly: Calgary
-  first:
-  second:
+  first_tier:
+  second_tier:
 - center: CZW
   friendly: Winnipeg
-  first:
-  second:
+  first_tier:
+  second_tier:
 - center: CZY
   friendly: Toronto
-  first:
-  second:
+  first_tier:
+  second_tier:
 - center: CZU
   friendly: Montreal/Quebec/Ottawa
-  first:
-  second:
+  first_tier:
+  second_tier:
 - center: ZMA
   friendly: Miami
-  first:
+  first_tier:
     - ZHU
     - ZJX
-  second:
+  second_tier:
     - ZFW
     - ZME
     - ZTL
     - ZDC
 - center: ZJX
   friendly: Jacksonville
-  first:
+  first_tier:
     - ZMA
     - ZHU
     - ZTL
     - ZDC
-  second:
+  second_tier:
     - ZAB
     - ZFW
     - ZME
@@ -46,11 +46,11 @@
     - ZBW
 - center: ZBW
   friendly: Boston
-  first:
+  first_tier:
     - ZOB
     - ZDC
     - ZNY
-  second:
+  second_tier:
     - ZMP
     - ZAU
     - ZID
@@ -58,11 +58,11 @@
     - ZJX
 - center: ZNY
   friendly: New York/New Jersey
-  first:
+  first_tier:
     - ZBW
     - ZOB
     - ZDC
-  second:
+  second_tier:
     - ZMP
     - ZAU
     - ZID
@@ -70,13 +70,13 @@
     - ZJX
 - center: ZDC
   friendly: Washington
-  first:
+  first_tier:
     - ZBW
     - ZOB
     - ZID
     - ZTL
     - ZJX
-  second:
+  second_tier:
     - ZMP
     - ZAU
     - ZKC
@@ -85,14 +85,14 @@
     - ZMA
 - center: ZHU
   friendly: Houston
-  first:
+  first_tier:
     - ZAB
     - ZFW
     - ZME
     - ZTL
     - ZJX
     - ZMA
-  second:
+  second_tier:
     - ZLA
     - ZDV
     - ZKC
@@ -100,17 +100,17 @@
     - ZDC
 - center: ZME
   friendly: Memphis
-  first:
-  second:
+  first_tier:
+  second_tier:
 - center: ZTL
   friendly: Atlanta
-  first:
+  first_tier:
     - ZHU
     - ZME
     - ZJX
     - ZID
     - ZDC
-  second:
+  second_tier:
     - ZAB
     - ZFW
     - ZKC
@@ -120,14 +120,14 @@
     - ZMA
 - center: ZID
   friendly: Indianapolis
-  first:
+  first_tier:
     - ZKC
     - ZME
     - ZTL
     - ZAU
     - ZOB
     - ZDC
-  second:
+  second_tier:
     - ZAB
     - ZDV
     - ZFW
@@ -138,14 +138,14 @@
     - ZBW
 - center: ZOB
   friendly: Cleveland
-  first:
+  first_tier:
     - ZMP
     - ZAU
     - ZID
     - ZDC
     - ZNY
     - ZBW
-  second:
+  second_tier:
     - ZLC
     - ZDV
     - ZKC
@@ -154,12 +154,12 @@
     - ZJX
 - center: ZAU
   friendly: Chicago
-  first:
+  first_tier:
     - ZMP
     - ZKC
     - ZID
     - ZOB
-  second:
+  second_tier:
     - ZLC
     - ZDV
     - ZAB
@@ -171,7 +171,7 @@
     - ZBW
 - center: ZKC
   friendly: Kansas City
-  first:
+  first_tier:
     - ZAB
     - ZDV
     - ZMP
@@ -179,7 +179,7 @@
     - ZID
     - ZME
     - ZFW
-  second:
+  second_tier:
     - ZLA
     - ZLC
     - ZHU
@@ -187,13 +187,13 @@
     - ZDC
     - ZOB
 - center: ZFW
-  friendly: Dallas/Fort Worth
-  first:
+  friendly: Fort Worth
+  first_tier:
     - ZAB
     - ZKC
     - ZME
     - ZHU
-  second:
+  second_tier:
     - ZLA
     - ZDV
     - ZMP
@@ -204,13 +204,13 @@
     - ZMA
 - center: ZAB
   friendly: Alberquerque
-  first:
+  first_tier:
     - ZLA
     - ZDV
     - ZKC
     - ZFW
     - ZHU
-  second:
+  second_tier:
     - ZOA
     - ZLC
     - ZMP
@@ -221,13 +221,13 @@
     - ZJX
 - center: ZDV
   friendly: Denver
-  first:
+  first_tier:
     - ZLA
     - ZAB
     - ZKC
     - ZMP
     - ZLC
-  second:
+  second_tier:
     - ZSE
     - ZOA
     - ZFW
@@ -238,13 +238,13 @@
     - ZOB
 - center: ZMP
   friendly: Minneapolis
-  first:
+  first_tier:
     - ZLC
     - ZDV
     - ZKC
     - ZAU
     - ZOB
-  second:
+  second_tier:
     - ZSE
     - ZOA
     - ZLA
@@ -257,25 +257,25 @@
     - ZBW
 - center: ZLC
   friendly: Salt Lake City
-  first:
+  first_tier:
     - ZSE
     - ZOA
     - ZLA
     - ZDV
     - ZMP
-  second:
+  second_tier:
     - ZAB
     - ZKC
     - ZAU
     - ZOB
 - center: ZLA
   friendly: Los Angeles
-  first:
+  first_tier:
     - ZOA
     - ZLC
     - ZDV
     - ZAB
-  second:
+  second_tier:
     - ZSE
     - ZMP
     - ZKC
@@ -283,20 +283,20 @@
     - ZHU
 - center: ZOA
   friendly: Oakland
-  first:
+  first_tier:
     - ZSE
     - ZLC
     - ZLA
-  second:
+  second_tier:
     - ZDV
     - ZAB
     - ZMP
 - center: ZSE
   friendly: Seattle
-  first:
+  first_tier:
     - ZOA
     - ZLC
-  second:
+  second_tier:
     - ZLA
     - ZDV
     - ZMP
