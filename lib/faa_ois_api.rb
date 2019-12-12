@@ -2,6 +2,7 @@
 
 require 'faa_ois_api/page'
 require 'faa_ois_api/artcc'
+require 'faa_ois_api/friendly_message'
 
 module FAAOISAPI
   @logger = Logger.new(STDOUT)
