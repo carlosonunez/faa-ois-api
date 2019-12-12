@@ -18,14 +18,6 @@ module FAAOISAPI
       matching_center
     end
 
-    def self.from_airport(airport)
-      fetch_iflightplanner_data(airport) do |body|
-        Nokogiri::HTML(body).xpath('//label[contains(., "ARTCC")]//..//div')
-                .inner_text
-                .gsub(/^(.*) -.*/, '\1')
-      end
-    end
-
     def self.fetch_centers
       unless File.exist? 'include/artcc_info.yml'
         FAAOISAPI.logger.error 'ARTCC info not found.'

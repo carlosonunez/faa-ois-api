@@ -10,7 +10,8 @@ describe 'Given an airport' do
         .and_return(double(HTTParty::Response,
                            code: 200,
                            body: File.read($expected_iflightplanner_html)))
-      expect(FAAOISAPI::ARTCC.from_airport('DFW')).to eq 'ZFW'
+      airport = FAAOISAPI::Airport.new('DFW')
+      expect(airport.artcc).to eq 'ZFW'
     end
   end
 end
