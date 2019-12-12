@@ -43,18 +43,6 @@ module FAAOISAPI
       end
     end
 
-    def self.fetch_iflightplanner_data(airport)
-      response =
-        HTTParty.get('https://www.iflightplanner.com/Airports/' + airport)
-      if response.code != 200
-        FAAOISAPI.logger.error \
-          "Couldn't get airport data for #{airport}: #{response.body}"
-        yield(nil)
-      end
-      yield(response.body)
-    end
-
-    private_class_method :fetch_iflightplanner_data
     private_class_method :expand_centers
     private_class_method :get_center_info
     private_class_method :fetch_centers
