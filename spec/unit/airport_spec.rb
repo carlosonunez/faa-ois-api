@@ -11,7 +11,7 @@ describe 'Given an airport' do
                            code: 200,
                            body: File.read($expected_iflightplanner_html)))
       airport = FAAOISAPI::Airport.new('DFW')
-      expect(airport.full_name).to eq 'Dallas-Fort Worth International Airport'
+      expect(airport.full_name).to eq 'Dallas-Fort Worth International'
     end
   end
 end

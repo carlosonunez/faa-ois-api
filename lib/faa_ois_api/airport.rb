@@ -13,7 +13,7 @@ module FAAOISAPI
         Nokogiri::HTML(body).xpath('//div[@class="LocationName"]')
                 .inner_text
                 .gsub(/^(.*) -.*/, '\1')
-                .gsub(/INTL$/, 'International Airport')
+                .gsub(/INTL$/, 'International')
                 .gsub(/\w+/, &:capitalize)
       end
     end
