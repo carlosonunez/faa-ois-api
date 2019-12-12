@@ -3,13 +3,10 @@
 require 'spec_helper'
 
 describe 'Given an airport' do
+  before(:each) { TestMocks.generate! }
+
   context 'When I look up its center' do
     example "Then I get the center's identifier", :unit do
-      allow(HTTParty).to receive(:get)
-        .with($iflightplanner_url)
-        .and_return(double(HTTParty::Response,
-                           code: 200,
-                           body: File.read($expected_iflightplanner_html)))
       airport = FAAOISAPI::Airport.new('DFW')
       expect(airport.artcc).to eq 'ZFW'
     end

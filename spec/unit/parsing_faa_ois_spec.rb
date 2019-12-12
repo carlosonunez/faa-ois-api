@@ -6,7 +6,7 @@ require 'spec_helper'
 # that I would like to cover within the same spec.
 # rubocop:disable Metrics/BlockLength
 describe 'Given the FAA OIS page' do
-  before(:each) { TestMocks.generate_mocks! }
+  before(:each) { TestMocks.generate! }
 
   let(:expected_output) do
     YAML.safe_load(File.read('spec/fixtures/example_parsed_ois_info.yml'),

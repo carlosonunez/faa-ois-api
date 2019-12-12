@@ -3,18 +3,17 @@
 require 'yaml'
 require 'httparty'
 require 'faa_ois_api'
+require 'yaml'
 
 module TestMocks
-  MOCKS = {
-    'iflightplanner.com/Airports/DFW': 'example_iflightplanner_response',
-    'fly.faa.gov/ois/jsp/summary_sys.jsp': 'example_ois_page'
-  }.freeze
-  def self.generate_mocks!
+  def self.generate!
     extend RSpec::Mocks::ExampleMethods
-    MOCKS.each do |url, mocked_body|
-      mocked_body_file = "spec/fixtures/#{mocked_body}.html"
-      allow_any_instance_of(HTTParty)
-        .to receive(url)
+    YAML.safe_load(File.read('spec/include/mocks.yml'),
+                   symbolize_names: true).each do |mock|
+      mocked_body_file = "spec/fixtures/#{mock[:page]}"
+      allow(HTTParty)
+        .to receive(:get)
+        .with(mock[:url])
         .and_return(double(HTTParty::Response,
                            code: 200,
                            body: File.read(mocked_body_file)))

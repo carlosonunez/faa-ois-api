@@ -3,15 +3,18 @@
 require 'spec_helper'
 
 describe 'Given an airport' do
+  let(:airport) { FAAOISAPI::Airport.new('DFW') }
+
+  before(:each) { TestMocks.generate! }
+
+  context 'When I get its IATA code' do
+    example 'Then I get it', :unit do
+      airport.iata.should == 'DFW'
+    end
+  end
   context 'When I get its full name' do
     example 'Then I get it', :unit do
-      allow(HTTParty).to receive(:get)
-        .with($iflightplanner_url)
-        .and_return(double(HTTParty::Response,
-                           code: 200,
-                           body: File.read($expected_iflightplanner_html)))
-      airport = FAAOISAPI::Airport.new('DFW')
-      expect(airport.full_name).to eq 'Dallas-Fort Worth International'
+      airport.full_name.should == 'Dallas-Fort Worth International'
     end
   end
 end
