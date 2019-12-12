@@ -4,15 +4,20 @@ require 'yaml'
 require 'httparty'
 require 'faa_ois_api'
 
-RSpec.configure do |config|
-  config.before(:all, unit: true) do
+module TestMocks
+  MOCKS = {
+    'iflightplanner.com/Airports/DFW': 'example_iflightplanner_response',
+    'fly.faa.gov/ois/jsp/summary_sys.jsp': 'example_ois_page'
+  }.freeze
+  def self.generate_mocks!
     extend RSpec::Mocks::ExampleMethods
-    $expected_ois_page = 'spec/fixtures/example_ois_page.html'
-    $expected_iflightplanner_html =
-      'spec/fixtures/example_iflightplanner_response.html'
-    $iflightplanner_url = 'https://www.iflightplanner.com/Airports/DFW'
-    $expected_ois_page_url = ENV['FAA_OIS_URL'] ||
-                             'https://www.fly.faa.gov/ois/jsp/summary_sys.jsp'
-    $expected_output_yml = 'spec/fixtures/example_parsed_ois_info.yml'
+    MOCKS.each do |url, mocked_body|
+      mocked_body_file = "spec/fixtures/#{mocked_body}.html"
+      allow_any_instance_of(HTTParty)
+        .to receive(url)
+        .and_return(double(HTTParty::Response,
+                           code: 200,
+                           body: File.read(mocked_body_file)))
+    end
   end
 end

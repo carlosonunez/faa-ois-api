@@ -6,15 +6,15 @@ require 'spec_helper'
 # that I would like to cover within the same spec.
 # rubocop:disable Metrics/BlockLength
 describe 'Given the FAA OIS page' do
+  before(:each) { TestMocks.generate_mocks! }
+
+  let(:expected_output) do
+    YAML.safe_load(File.read('spec/fixtures/example_parsed_ois_info.yml'),
+                   symbolize_names: true)
+  end
+
   context 'When I fetch it' do
     example 'It condenses the page into a really nice YAML file', :unit do
-      allow(HTTParty).to receive(:get)
-        .with($expected_ois_page_url)
-        .and_return(double(HTTParty::Response,
-                           code: 200,
-                           body: File.read($expected_ois_page)))
-      expected_output = YAML.safe_load(File.read($expected_output_yml),
-                                       symbolize_names: true)
       actual_output = FAAOISAPI::Page.parse
       %i[programs ground_stops delays closures].each do |section|
         expect(actual_output[section]).to eq expected_output[section]
@@ -25,17 +25,19 @@ describe 'Given the FAA OIS page' do
   context 'When a national program is in place' do
     context 'And no other areas are affected' do
       example 'Then I get a friendly message describing it', :unit do
-        example_output = YAML.safe_load(File.read($expected_output_yml),
-                                        symbolize_names: true)
+        allow(FAAOISAPI::Airport).to receive(:new)
+          .and_return(double(FAAOISAPI::Airport,
+                             full_name: 'Newark-Liberty International'))
         allow(FAAOISAPI).to receive(:parse).and_return(example_output)
         ewr_ground_stop =
           example_output[:programs]
           .find { |program| program[:airport_or_zone_name] == 'EWR' }
         ewr_ground_stop[:areas_affected] = []
         expected_friendly_message = <<~FRIENDLY_MESSAGE.chomp
-          EWR is currently experiencing a ground stop that's expected \
-          to end at 03:59 UTC. Try using another airport nearby, as this is \
-          the only airport affected by this.
+          Newark-Liberty International (EWR) is currently experiencing a ground \
+          stop that's expected to end at 03:59 UTC. \
+          Try using another airport nearby, as this is the only airport \
+          affected by this.
         FRIENDLY_MESSAGE
         expect(FAAOISAPI::FriendlyMessage.generate(type: :program,
                                                    data: ewr_ground_stop))
