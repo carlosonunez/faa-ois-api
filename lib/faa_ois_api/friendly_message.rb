@@ -19,8 +19,10 @@ module FAAOISAPI
     end
 
     def self.generate_ground_stop_message(data)
+      airport = Airport.new(data[:airport_or_zone_name])
       template_vars = {
-        airport: data[:airport_or_zone_name],
+        airport: airport.full_name,
+        airport_iata: airport.iata,
         end_time: data[:program_end]
       }
       render_template(template_vars)[:ground_stop][:no_affected_areas]

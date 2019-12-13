@@ -27,7 +27,11 @@ describe 'Given the FAA OIS page' do
       example 'Then I get a friendly message describing it', :unit do
         allow(FAAOISAPI::Airport).to receive(:new)
           .and_return(double(FAAOISAPI::Airport,
-                             full_name: 'Newark-Liberty International'))
+                             full_name: 'Newark-Liberty International',
+                             iata: 'EWR'))
+        example_output =
+          YAML.safe_load(File.read('spec/fixtures/example_parsed_ois_info.yml'),
+                         symbolize_names: true)
         allow(FAAOISAPI).to receive(:parse).and_return(example_output)
         ewr_ground_stop =
           example_output[:programs]

@@ -26,9 +26,17 @@ module FAAOISAPI
       end
     end
 
+    # Convenient decorator so that we don't have to keep referring to YAML
+    # to get this value.
+    def iata
+      @airport
+    end
+
     private
 
     def fetch_iflightplanner_data
+      uri = 'https://www.iflightplanner.com/Airports/' + @airport
+      FAAOISAPI.logger.debug "Fetching from iFlightPlanner: #{uri}"
       response =
         HTTParty.get('https://www.iflightplanner.com/Airports/' + @airport)
       if response.code != 200

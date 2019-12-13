@@ -9,12 +9,12 @@ describe 'Given an airport' do
 
   context 'When I get its IATA code' do
     example 'Then I get it', :unit do
-      airport.iata.should == 'DFW'
+      expect(airport.iata).to eq 'DFW'
     end
   end
   context 'When I get its full name' do
     example 'Then I get it', :unit do
-      airport.full_name.should == 'Dallas-Fort Worth International'
+      expect(airport.full_name).to eq 'Dallas-Fort Worth International'
     end
   end
 end
