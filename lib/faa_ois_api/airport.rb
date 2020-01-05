@@ -6,6 +6,7 @@ module FAAOISAPI
   class Airport
     def initialize(iata)
       @airport = iata
+      @airport_data = nil
     end
 
     def full_name
@@ -26,6 +27,10 @@ module FAAOISAPI
       end
     end
 
+    def valid_airport?
+      fetch_iflightplanner_data.nil?
+    end
+
     # Convenient decorator so that we don't have to keep referring to YAML
     # to get this value.
     def iata
@@ -35,16 +40,20 @@ module FAAOISAPI
     private
 
     def fetch_iflightplanner_data
+      yield(@airport_data) unless @airport_data.nil?
+
       uri = 'https://www.iflightplanner.com/Airports/' + @airport
       FAAOISAPI.logger.debug "Fetching from iFlightPlanner: #{uri}"
-      response =
-        HTTParty.get('https://www.iflightplanner.com/Airports/' + @airport)
-      if response.code != 200
-        FAAOISAPI.logger.error \
-          "Couldn't get airport data for #{airport}: #{response.body}"
+      response = HTTParty.get(uri, follow_redirects: false)
+      case response.code
+      when 200
+        yield(response.body)
+      when 302
+        FAAOISAPI.logger.warn("Invalid airport: #{@airport}")
         yield(nil)
+      else
+        FAAOISAPI.logger.error("Failed to get airport for #{@airport}: #{response.body}")
       end
-      yield(response.body)
     end
   end
 end

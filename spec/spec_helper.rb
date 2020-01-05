@@ -12,7 +12,7 @@ module TestMocks
                    symbolize_names: true).each do |mock|
       allow(HTTParty)
         .to receive(:get)
-        .with(mock[:url])
+        .with(mock[:url], follow_redirects: false)
         .and_return(double(HTTParty::Response,
                            code: 200,
                            body: File.read("spec/fixtures/#{mock[:page]}")))

@@ -22,7 +22,8 @@ module FAAOISAPI
           template_context.local_variable_set(key, val)
         end
         begin
-          YAML.safe_load(ERB.new(@messages_template).result(template_context),
+          YAML.safe_load(ERB.new(@messages_template, nil, '-')
+            .result(template_context),
                          symbolize_names: true)
         rescue StandardError => e
           raise IOError, "Failed to render template: #{e}"

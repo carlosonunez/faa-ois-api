@@ -9,7 +9,7 @@ module FAAOISAPI
     def self.fetch_info(identifier)
       all_centers = fetch_centers
       matching_center = get_center_info(identifier, all_centers)
-      return nil if matching_center.empty?
+      return nil if matching_center.nil || matching_center.empty?
 
       %i[first_tier second_tier].each do |key|
         matching_center[key] = expand_centers(matching_center[key],
